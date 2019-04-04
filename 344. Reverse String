@@ -1,0 +1,10 @@
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        for i in range (int(len(s)/2)):       #iterate the String by half of its length and other j that reads the char from last
+            j = len(s) - 1 - i
+            temp = s[i]                       #swap the charachters
+            s[i] = s[j]
+            s[j] = temp
