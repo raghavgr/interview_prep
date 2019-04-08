@@ -12,5 +12,5 @@ class Solution:
         """
         if (node == None):
             return 
-        node.val = node.next.val
+        node.val = node.next.val            #create a copy of the next node of the removed node and adjust the links
         node.next = node.next.next
