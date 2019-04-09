@@ -27,7 +27,7 @@ class Solution(object):
         return prev    
             
             
-  #Both time and space complexity is O(n)
+  #Both time complexity is O(n) and space complexity is O(1)
   
             
             
