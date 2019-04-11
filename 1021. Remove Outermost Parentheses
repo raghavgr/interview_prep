@@ -1,0 +1,18 @@
+class Solution(object):
+    def removeOuterParentheses(self, S):
+        """
+        :type S: str
+        :rtype: str
+        """
+        temp, result = "", ""               #intialising the strings to keep track of the updated string. 
+        count = 0                           #keep track of even count
+        for each in S:
+            temp += each                    #with each iteration keep adding the element of String to the temp variable
+            if each == "(":   
+                count += 1                  #increase count on striking (
+            else:
+                count -= 1                  #decrease the count when get ) by traversal
+            if count == 0:                  #when count = 0 which means that we have equal no of Parantheses and we pick selected string from temp using String Manipulation
+                result += temp[1:-1]
+                temp = ""                   #reinitialise the temp back to empty string
+        return result
