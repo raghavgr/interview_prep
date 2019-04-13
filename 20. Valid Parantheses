@@ -34,10 +34,10 @@ class Solution(object):
         pairs = {')': '(' , '}' : '{', ']':'['}
         
         for i in s:
-            if i in pairs.values():
+            if i in pairs.values():   #checking the open braces declared as values in dict
                 stack.append(i)
             elif i in pairs.keys():
-                if len(stack) == 0 or stack.pop()!= pairs[i]:
+                if len(stack) == 0 or stack.pop()!= pairs[i]:           # element compared with the one with 0 len stack
                     return False
             else:
                 return False
