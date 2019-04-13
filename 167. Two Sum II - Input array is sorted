@@ -1,0 +1,22 @@
+class Solution(object):
+    def twoSum(self, numbers, target):
+        """
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        c_map = dict()
+        
+        for i in range(len(numbers)):
+        
+            num = numbers[i]
+            comp = target - num
+            if num in c_map:
+                return [c_map[num], i+1]   #index not 0 Numbered, storing the complements of the substraction and storing it in hashmap 
+            else:                           #if present then return the index of the complement or i 
+                c_map[comp] = i+1
+                
+                
+   #try binary search approach as well.
+   
+   
