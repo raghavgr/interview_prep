@@ -1,0 +1,32 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):                               
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        stack = []
+        
+        if head is None or head.next is None:
+            return True
+        
+        while(head != None):
+            stack.append(head.val)
+            head = head.next
+
+                                                #run till length/2 and check if the fist element and the last element are same 
+        length = len(stack)
+        for i in range(length/2):
+            if stack[i] != stack[length - i - 1]:
+                return False
+        return True
+        
+            #Another one is stack implementation where you iterate through all the nodes one by one till the end and push it in stack and the 
+            # again iterate through the LL all over again and pop each element and the element curr node must be same, if not False.
+            #Also time complexity is O(n) and space is also O(n)
+            
