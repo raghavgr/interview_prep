@@ -1,0 +1,10 @@
+class Solution(object):
+    def minCostClimbingStairs(self, cost):
+        """
+        :type cost: List[int]
+        :rtype: int
+        """
+        cost1 = cost2 = 0
+        for i in reversed(cost):
+            cost1, cost2 = i + min(cost1, cost2), cost1
+        return min(cost1, cost2)
