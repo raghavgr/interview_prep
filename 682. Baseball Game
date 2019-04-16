@@ -1,0 +1,21 @@
+class Solution(object):
+    def calPoints(self, ops):
+        """
+        :type ops: List[str]
+        :rtype: int
+        """
+        stack = []
+        
+        for op in ops:
+            if op == '+':
+                stack.append(stack[-1] + stack[-2])  #adding the last two elements in the stack
+            elif op == 'C':
+                stack.pop()
+            elif op == 'D':   
+                stack.append(2* stack[-1])   #multiply the last element by 2
+            else:
+                stack.append(int(op))       
+
+        return sum(stack)   #return sum of whatever left in the stack
+            
+            
