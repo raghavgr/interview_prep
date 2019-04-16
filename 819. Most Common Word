@@ -1,0 +1,30 @@
+class Solution(object):
+    def mostCommonWord(self, paragraph, banned):
+        """
+        :type paragraph: str
+        :type banned: List[str]
+        :rtype: str
+        """
+        banset = set(banned)
+        count = collections.Counter(word.strip("!?',;.") for word in paragraph.lower().split())  #stores each keyword as a key in dic and values are their no of occourances
+
+        ans, best = '', 0
+        
+        for word in count:
+            if count[word] > best and word not in banset:
+                ans, best = word, count[word] #count[each] is the no of occourances of the word key is associated with
+
+        return ans
+    
+    #         banset = set(banned)
+#         count = collections.Counter(each.strip("!?',;.") for each in paragraph.lower().split())
+#         #stores each keyword as a key in dic and values are their no of occourances
+        
+#         result = ''
+#         best = 0
+        
+#         for each in count:
+#             if count[each] > best and each not in banset:
+#                 result, best = each, count[each]
+#                 #count[each] is the no of occourances of the word key is associated with
+#         return result
