@@ -1,0 +1,27 @@
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        height = 0 
+        
+        if root is None:
+            return 0
+        else:
+            lh = self.maxDepth(root.left)       #check for the height of left subtree first and then right subtree and compare.
+            rh = self.maxDepth(root.right)
+            
+            
+            if lh > rh:
+                 height = lh + 1
+            else: 
+                height = rh + 1
+        
+        return height
+        
+        
+        
+  # way = 2
+  
+  
