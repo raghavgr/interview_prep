@@ -1,0 +1,34 @@
+
+# recursive solution
+#save the state in the l and r lists
+
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        result = []
+        
+        if root is None:
+            return []
+        else:
+            result.append(root.val)
+            l = self.preorderTraversal(root.left)       
+            r = self.preorderTraversal(root.right)
+        return result + l + r
+        
+        
+ # iterative solution
+   
+  class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        result = []
+        stack = [root]
+        
+        
+        while stack:
+            curr_node = stack.pop()             #curr_node always has the stack topmost element 
+            
+            if curr_node:   #curr_node carries the pointer to both left and right 
+                result.append(curr_node.val)
+                stack.append(curr_node.right)   #if stack gets empty explore the right subtree      
+                stack.append(curr_node.left)     #explore to the left
+                
+        return result
