@@ -1,0 +1,17 @@
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        
+        stack = []  #no need to assign stack to a root because we need to directly 
+        #traverse left
+        
+        while stack or root:
+            if root:
+                stack.append(root)
+                root = root.left  #traverse until the last element of the tree on left
+            else:
+                temp_node = stack.pop()
+                res.append(temp_node.val)
+                root = temp_node.right  #explore the right
+                
+        return res
