@@ -6,17 +6,16 @@ class Solution:
         prev = None
         
         
-        while stack and root:
+        while stack or root:
             if root:
                 stack.append(root)
                 root = root.left
             else:
                 temp = stack.pop()
-                if prev and prev.val >= tempNode.val:  #prev is being checked, sorting here else fal
+                if prev and prev.val >= temp.val:  #prev is being checked, sorting here else fal
                     return False
                 
                 prev = temp
                 root = temp.right
                 
         return True
-        
