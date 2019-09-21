@@ -1,0 +1,21 @@
+class Solution:
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        
+        stack = [root]
+        stack2 = []
+        res = []
+        while stack:
+            
+            temp = stack.pop()
+            if temp:
+                stack2.append(temp)
+                stack.append(temp.left)
+                stack.append(temp.right)  
+                
+                
+        while stack2:
+            var =  stack2.pop() 
+            res.append(var.val)
+            
+        return res
+            
