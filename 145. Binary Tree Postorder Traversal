@@ -19,3 +19,16 @@ class Solution:
             
         return res
             
+    def postorderTraversalIter(self, root: TreeNode) -> List[int]:
+        stack = []
+        res = []
+        
+        while stack or root:
+            if root:
+                stack.append(root)
+                res.insert(0, root.val)
+                root = root.right
+            else:
+                node = stack.pop()
+                root = node.left
+        return res
